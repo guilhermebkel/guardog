@@ -1,10 +1,12 @@
 import Server from "boot/server"
 import Database from "boot/database"
+import Queue from "boot/queue"
 
 class Boot {
 	public async start() {
 		await Database.start()
-		await Server.start()
+		Server.start()
+		Queue.start()
 	}
 }
 

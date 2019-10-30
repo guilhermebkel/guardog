@@ -17,7 +17,7 @@ class Server {
 
 	private initServer() {
 		this.app.listen(process.env.PORT, () => {
-			console.log(`Server running... [PORT ${process.env.PORT}]`)
+			console.log(`Server is running... [PORT ${process.env.PORT}]`)
 		})
 	}
 }
