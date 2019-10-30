@@ -1,0 +1,16 @@
+{
+	"ignore": [
+		"**/*.test.ts",
+		"**/*.spec.ts",
+		".git",
+		"node_modules"
+	],
+	"watch": [
+		"apps"
+	],
+	"ext": "js ts",
+	"exec": "tsc && NODE_ENV=development PORT=3666 node dist/index.js",
+	"execMap": {
+		"ts": "ts-node"
+	}
+}
