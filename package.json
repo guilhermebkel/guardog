@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon",
     "build": "tsc",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "deploy": "git pull && vpdate && git push"
   },
   "repository": {
     "type": "git",
@@ -29,7 +30,8 @@
     "pg": "^7.12.1",
     "sequelize": "^5.21.2",
     "tslint": "^5.20.0",
-    "typescript": "^3.6.4"
+    "typescript": "^3.6.4",
+    "vpdate": "^0.1.1"
   },
   "_moduleAliases": {
     "~": "./dist/apps",
