@@ -4,18 +4,18 @@ import { Express } from "express"
 import Middlewares from "boot/server/middlewares"
 
 class Server {
-	private app: Express = express()
+	app: Express = express()
 
-	public async start() {
+	async start() {
 		this.setupMiddlewares()
 		this.initServer()
 	}
 
-	private setupMiddlewares() {
+	setupMiddlewares() {
 		Middlewares.map(middleware => this.app.use(middleware))
 	}
 
-	private initServer() {
+	initServer() {
 		this.app.listen(process.env.PORT, () => {
 			console.log(`Server is running... [PORT ${process.env.PORT}]`)
 		})
