@@ -1,5 +1,5 @@
 const queueConfig = {
-	concurrency: 30,
+	concurrency: 10,
 	timeout: 1000,
 	autostart: true
 }
