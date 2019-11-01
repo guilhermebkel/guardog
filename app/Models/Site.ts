@@ -4,7 +4,7 @@ export default class Site extends Model {
 	id: number
 	url: string
 	bedtime: boolean | null
-	bedtime_due: string | null
+	bedtime_due: number | null
 	created_at: Date
 	updated_at: Date
 
@@ -28,7 +28,7 @@ export default class Site extends Model {
 					defaultValue: false
 				},
 				bedtime_due: {
-					type: DataTypes.STRING,
+					type: DataTypes.NUMBER,
 					allowNull: true,
 					defaultValue: ""
 				},

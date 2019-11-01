@@ -12,7 +12,8 @@
 		"ordered-imports": false,
 		"member-ordering": false,
 		"member-access": false,
-		"variable-name": false
+		"variable-name": false,
+		"interface-name": false
 	},
 	"rulesDirectory": []
 }
