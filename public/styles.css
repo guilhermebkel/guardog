@@ -45,6 +45,8 @@ button {
 
 .container .content {
 	margin: 0 auto auto;
+	display: flex;
+	flex-direction: column;
 }
 
 .container .content .site-subscription .url-input {
@@ -69,7 +71,7 @@ button {
 	border-bottom: 2px solid black;
 }
 
-.container .content .site-subscription button {
+.container .content button {
 	border: 0;
 	background-color: #000;
 	color: #fff;
@@ -81,8 +83,19 @@ button {
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 	transition: all 0.15s ease-in-out;
 }
-.container .content .site-subscription button:hover {
+.container .content button:hover {
 	background-color: #555;
 	color: #fff;
+	transition: all 0.15s ease-in-out;
+}
+
+.container .content a {
+	margin-top: 16px;
+	cursor: pointer;
+	text-decoration: underline;
+	transition: all 0.15s ease-in-out;
+}
+.container .content a:hover {
+	color: #777;
 	transition: all 0.15s ease-in-out;
 }

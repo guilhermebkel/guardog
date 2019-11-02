@@ -32,35 +32,53 @@
 						<input type="text" name="url" placeholder="Your app..." />
 						<span>.herokuapp.com</span>
 					</section>
-					<button type="submit">Keep my heroku app awaken forever!</button>
 				</form>
+				<button type="button" onclick="submit('subscribe')">
+					Keep my heroku app awaken forever!
+				</button>
+				<a onclick="submit('unsubscribe')">Remove my heroku app</a>
 			</div>
 		</div>
 	</body>
 	<footer>
 		<script type="text/javascript">
-			$(".site-subscription").submit(function(event) {
-				event.preventDefault()
+			function submit(action) {
+				var type
+				var data
 				var url = $("input[name=url]").val()
+
+				if (!url) {
+					return
+				}
+
 				url = "https://" + url + ".herokuapp.com"
 
-				var payload = {
-					url
+				if (action === "subscribe") {
+					type = "POST"
+					data = { url }
+					data = JSON.stringify(data)
+					url = document.location.href + "site"
+				} else if (action === "unsubscribe") {
+					type = "DELETE"
+					url = document.location.href + "site?url=" + url
+					data = {}
+				} else {
+					return
 				}
-				payload = JSON.stringify(payload)
+
 				$.ajax({
-					type: "POST",
-					url: document.location.href + "site",
-					data: payload,
+					type,
+					url,
+					data,
 					contentType: "application/json"
 				})
 					.done(function() {
-						alert("Now your site will be awaken forever!")
+						alert("Done!")
 					})
 					.fail(function() {
-						alert("Failed to get your site awaken forever!")
+						alert("Failed!")
 					})
-			})
+			}
 		</script>
 	</footer>
 </html>

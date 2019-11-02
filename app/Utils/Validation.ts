@@ -28,6 +28,7 @@ class Validation {
 	}
 
 	async isSiteUrlValid(url: string) {
+		Yup.string()
 		const siteUrlSchema = Yup.object().shape({
 			url: Yup.string()
 				.url()
@@ -35,7 +36,7 @@ class Validation {
 		})
 
 		try {
-			await siteUrlSchema.validate(url)
+			await siteUrlSchema.validate({ url })
 			return true
 		} catch (error) {
 			return false
