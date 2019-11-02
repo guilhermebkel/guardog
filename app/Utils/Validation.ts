@@ -10,7 +10,6 @@ class Validation {
 		>({
 			url: Yup.string()
 				.url()
-				.matches(/herokuapp/)
 				.required(),
 			bedtime: Yup.bool()
 				.notRequired()
@@ -32,7 +31,6 @@ class Validation {
 		const siteUrlSchema = Yup.object().shape({
 			url: Yup.string()
 				.url()
-				.matches(/herokuapp/)
 				.required()
 		})
 

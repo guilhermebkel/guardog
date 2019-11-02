@@ -1,7 +1,9 @@
 import { DataTypes, Model, Sequelize } from "sequelize"
 
+import Crypt from "~/Utils/Crypt"
+
 export default class Site extends Model {
-	id: number
+	id: string
 	url: string
 	bedtime: boolean | null
 	bedtime_due: number | null
@@ -12,10 +14,10 @@ export default class Site extends Model {
 		this.init(
 			{
 				id: {
-					type: DataTypes.INTEGER,
+					type: DataTypes.STRING,
 					allowNull: false,
 					primaryKey: true,
-					autoIncrement: true
+					defaultValue: () => Crypt.generateHash()
 				},
 				url: {
 					type: DataTypes.STRING,
@@ -28,9 +30,8 @@ export default class Site extends Model {
 					defaultValue: false
 				},
 				bedtime_due: {
-					type: DataTypes.NUMBER,
-					allowNull: true,
-					defaultValue: ""
+					type: DataTypes.INTEGER,
+					allowNull: true
 				},
 				created_at: {
 					type: DataTypes.DATE,

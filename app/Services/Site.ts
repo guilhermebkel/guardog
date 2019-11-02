@@ -11,10 +11,6 @@ class SiteService {
 		const siteSubscriptionExists = await Validation.siteSubscriptionExists(url)
 
 		if (siteSubscriptionExists) {
-			if (!bedtime || !bedtime_due) {
-				return false
-			}
-
 			await Site.update({ bedtime, bedtime_due }, { where: { url } })
 			return true
 		} else {
