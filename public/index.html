@@ -18,8 +18,49 @@
 			content="heroku, programming, nodejs, javascript, awake, forever, herokuapp, nosleep, awaken"
 		/>
 		<title>Guardog</title>
+
+		<link rel="stylesheet" href="styles.css" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	</head>
 	<body>
-		<h1>TESTE</h1>
+		<div class="container">
+			<img class="logo" src="assets/logo.png" />
+			<div class="content">
+				<form class="site-subscription">
+					<section class="url-input">
+						<span>https://</span>
+						<input type="text" name="url" placeholder="Your app..." />
+						<span>.herokuapp.com</span>
+					</section>
+					<button type="submit">Keep my heroku app awaken forever!</button>
+				</form>
+			</div>
+		</div>
 	</body>
+	<footer>
+		<script type="text/javascript">
+			$(".site-subscription").submit(function(event) {
+				event.preventDefault()
+				var url = $("input[name=url]").val()
+				url = "https://" + url + ".herokuapp.com"
+
+				var payload = {
+					url
+				}
+				payload = JSON.stringify(payload)
+				$.ajax({
+					type: "POST",
+					url: document.location.href + "site",
+					data: payload,
+					contentType: "application/json"
+				})
+					.done(function() {
+						alert("Now your site will be awaken forever!")
+					})
+					.fail(function() {
+						alert("Failed to get your site awaken forever!")
+					})
+			})
+		</script>
+	</footer>
 </html>

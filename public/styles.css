@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	outline: 0;
+	box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+	min-height: 100%;
+}
+
+body {
+	background: #fff;
+	background-size: cover;
+	-webkit-font-smoothing: antialiased !important;
+}
+
+body,
+input,
+button {
+	font-family: "Lato", Arial, Helvetica, sans-serif;
+	font-size: 14px;
+}
+
+.container {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+}
+
+.container .logo {
+	width: 150px;
+	height: auto;
+	margin: auto auto 50px;
+}
+
+.container .content {
+	margin: 0 auto auto;
+}
+
+.container .content .site-subscription .url-input {
+	align-items: center;
+}
+
+.container .content .site-subscription .url-input span {
+	font-size: 25px;
+}
+
+.container .content .site-subscription .url-input input {
+	font-size: 20px;
+	border: 0;
+	border-bottom: 2px solid transparent;
+	margin: 0 5px;
+	width: 250px;
+	background-color: rgba(0, 0, 0, 0.1);
+	font-weight: bold;
+	padding: 5px 10px;
+}
+.container .content .site-subscription .url-input input:focus {
+	border-bottom: 2px solid black;
+}
+
+.container .content .site-subscription button {
+	border: 0;
+	background-color: #000;
+	color: #fff;
+	font-size: 16px;
+	padding: 10px 20px;
+	margin-top: 50px;
+	cursor: pointer;
+	border-radius: 2px;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+	transition: all 0.15s ease-in-out;
+}
+.container .content .site-subscription button:hover {
+	background-color: #555;
+	color: #fff;
+	transition: all 0.15s ease-in-out;
+}

@@ -7,6 +7,7 @@ import SiteService from "~/Services/Site"
 
 class SiteController {
 	async subscribeSite(req: Req, res: Res) {
+		console.log(req.body)
 		const isSiteSubscriptionPayloadValid = await Validation.isSiteSubscriptionPayloadValid(
 			req.body
 		)
