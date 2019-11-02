@@ -22,6 +22,15 @@ class SiteService {
 			return true
 		}
 	}
+
+	async unsubscribeSite(url: string) {
+		try {
+			await Site.destroy({ where: { url } })
+			return true
+		} catch (error) {
+			return false
+		}
+	}
 }
 
 export default new SiteService()

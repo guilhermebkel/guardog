@@ -10,7 +10,8 @@ class Validation {
 		>({
 			url: Yup.string()
 				.url()
-				.matches(/herokuapp/),
+				.matches(/herokuapp/)
+				.required(),
 			bedtime: Yup.bool()
 				.notRequired()
 				.nullable(),
@@ -21,6 +22,22 @@ class Validation {
 
 		try {
 			await siteSubscriptionPayloadSchema.validate(payload)
+			return true
+		} catch (error) {
+			return false
+		}
+	}
+
+	async isSiteUrlValid(url: string) {
+		const siteUrlSchema = Yup.object().shape({
+			url: Yup.string()
+				.url()
+				.matches(/herokuapp/)
+				.required()
+		})
+
+		try {
+			await siteUrlSchema.validate(url)
 			return true
 		} catch (error) {
 			return false

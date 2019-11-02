@@ -22,6 +22,21 @@ class SiteController {
 			return Response.deliver(res, 500)
 		}
 	}
+
+	async unsubscribeSite(req: Req, res: Res) {
+		const isUrlValid = await Validation.isSiteUrlValid(req.query.url)
+		if (!isUrlValid) {
+			return Response.deliver(res, 400, { error: "InvalidSiteUrl" })
+		}
+
+		const result = await SiteService.unsubscribeSite(req.query.url)
+
+		if (result) {
+			return Response.deliver(res, 200)
+		} else {
+			return Response.deliver(res, 500)
+		}
+	}
 }
 
 export default new SiteController()
